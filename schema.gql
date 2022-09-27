@@ -2,29 +2,40 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input CreateUserInput {
+input AuthInput {
   email: String!
-  name: String
+  password: String!
 }
 
+type AuthType {
+  user: User!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Mutation {
-  createUser(createUserData: CreateUserInput!): User!
-  deleteUser(id: String!): Boolean!
-  updateUser(id: String!, updateUserData: UpdateUserInput!): User!
+  login(data: AuthInput!): AuthType!
 }
 
 type Query {
   user(id: String!): User!
-  users(skip: Int = 0, take: Int = 25): [User!]!
+  whoAmI: User!
 }
 
-input UpdateUserInput {
-  email: String
-  name: String
+enum Role {
+  ADMIN
+  USER
 }
 
 type User {
+  createdAt: DateTime!
   email: String!
   id: ID!
-  name: String
+  password: String!
+  role: Role!
+  updatedAt: DateTime!
+  username: String!
 }

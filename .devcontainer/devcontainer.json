@@ -14,7 +14,6 @@
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"dbaeumer.vscode-eslint",
-				"streetsidesoftware.code-spell-checker-portuguese-brazilian",
 				"streetsidesoftware.code-spell-checker",
 				"eamodio.gitlens",
 				"esbenp.prettier-vscode",
